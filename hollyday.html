@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EID MUBARAK</title>
+    <style>
+        body {
+            background-color: #e6d8e7;
+            display: flex;
+            height: 90vh;
+            align-items: center;
+            justify-content: center;
+        }
+        #btn{
+            margin: 40px;
+            padding: 14px 48px;
+            font-size: 18px;
+            color: #af67b6;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        #btn:hover{
+            color: white;
+            background-color: #922e9b;
+            border: 1px solid #af67b6;
+        }
+    </style>
+</head>
+<body>
+    <img id="img" src="#" alt="">
+    <button id="btn" >Click Me</button>
+    <script>
+         // Using async and await function
+         const img = document.getElementById('img');
+        document.querySelector('#btn')
+          .addEventListener('click', () =>{
+              window.location.reload(true)
+          });
+        
+        fetch('https://api.giphy.com/v1/gifs/translate?api_key=IxLyfhF899y3i8ODRkEv74Wb5454Ve9w&s=eid+mubarak', {mode: 'cors'})
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) => {
+                img.src = response.data.images.original.url
+            })
+            .catch((err) =>{
+                console.log(err)
+            });
+    </script>
+</body>
+</html>
